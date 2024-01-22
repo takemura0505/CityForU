@@ -11,7 +11,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var fortuneButton: UIButton!
     
-    
     @IBAction private func fortuneButtonTapped() {
         //占う画面へ遷移
         let fortuneVC = storyboard?.instantiateViewController(withIdentifier: "FortuneViewController") as! FortuneViewController
@@ -20,8 +19,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //fortuneButtonのUIをセット
         setButtonUI(button: fortuneButton)
+        //navigationBarのbackボタンの文字を非表示
         navigationItem.backButtonTitle = ""
+        //navigationBarのbackボタンの色をlabelColorに変更
         navigationController?.navigationBar.tintColor = .label
     }
     

@@ -27,12 +27,16 @@ class FortuneViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    //キーボード表示時の処理
     @objc func keyboardWillShow(notification: NSNotification) {
+        //キーボードの高さを取得
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let keyboardHeight = keyboardSize.height
+        //scrollViewをキーボードの高さだけ下に伸ばす
         scrollView.contentInset.bottom = keyboardHeight
     }
-
+    
+    //キーボード非表示時
     @objc func keyboardWillHide(notification: NSNotification) {
         scrollView.contentInset = .zero
     }
