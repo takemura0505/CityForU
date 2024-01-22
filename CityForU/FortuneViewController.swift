@@ -14,10 +14,13 @@ class FortuneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //nextButtonのUIをセット
         setButtonUI(button: nextButton)
         //キーボードの表示非表示を確認
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //スワイプでキーボード閉じる処理
+        scrollView.keyboardDismissMode = .interactive
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,8 +39,9 @@ class FortuneViewController: UIViewController {
         scrollView.contentInset.bottom = keyboardHeight
     }
     
-    //キーボード非表示時
+    //キーボード非表示時の処理
     @objc func keyboardWillHide(notification: NSNotification) {
+        //下の高さに戻す
         scrollView.contentInset = .zero
     }
     

@@ -73,7 +73,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKR-oN-MU5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKR-oN-MU5">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDg-yL-bR4">
@@ -92,7 +92,7 @@
                                                 </buttonConfiguration>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前を入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txl-pu-SP4">
-                                                <rect key="frame" x="50" y="354.66666666666669" width="293" height="50"/>
+                                                <rect key="frame" x="50" y="314.66666666666669" width="293" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="s1z-zt-TpM"/>
                                                 </constraints>
@@ -109,7 +109,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="4"/>
                                             </progressView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-V6-Xk7">
-                                                <rect key="frame" x="50" y="414.66666666666669" width="35" height="35"/>
+                                                <rect key="frame" x="50" y="374.66666666666669" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="PZB-ip-HP6"/>
                                                     <constraint firstAttribute="width" constant="35" id="gAk-Zd-eYx"/>
@@ -121,7 +121,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Txl-pu-SP4" firstAttribute="centerY" secondItem="JDg-yL-bR4" secondAttribute="centerY" id="G5e-cn-dIO"/>
+                                            <constraint firstItem="Txl-pu-SP4" firstAttribute="centerY" secondItem="JDg-yL-bR4" secondAttribute="centerY" constant="-40" id="G5e-cn-dIO"/>
                                             <constraint firstAttribute="bottom" secondItem="9W9-Lg-6mQ" secondAttribute="bottom" constant="70" id="GCe-H8-GXD"/>
                                             <constraint firstItem="OUu-V6-Xk7" firstAttribute="leading" secondItem="JDg-yL-bR4" secondAttribute="leading" constant="50" id="JsY-5q-TH7"/>
                                             <constraint firstItem="EP2-NT-BYG" firstAttribute="top" secondItem="JDg-yL-bR4" secondAttribute="top" constant="150" id="MfU-cj-2dg"/>
