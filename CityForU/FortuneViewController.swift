@@ -32,7 +32,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     private var progressViewLevel: Double = 0
     private var name = ""
     private var bloodType = ""
-    private var datePicker: UIDatePicker = UIDatePicker()
+    private var datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,11 +96,16 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     //nextButtonがタップされた時の処理
    @objc private func nextButtonTapped() {
+       view.endEditing(true)
        //データを保持
        saveData(level: progressViewLevel, data: textField.text ?? "")
        //progressViewを動かす
        progressViewLevel += 0.34
        moveProgressView(level: progressViewLevel)
+       if progressViewLevel > 0.68 {
+           sendData()
+           print("送信しました")
+       }
        //表示を変更する
        levelChanged()
        //textFieldが0文字であればボタンを押せなくする
@@ -181,6 +186,70 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         textField.text = formatter.string(from: date)
+    }
+    
+    private func sendData() {
+        //URLの構築
+        let baseUrl = "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"
+        let endpoint = "/my_fortune"
+        guard let url = URL(string: baseUrl + endpoint) else {
+            fatalError("Invalid URL")
+        }
+        
+        //リクエストの設定
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("v1", forHTTPHeaderField: "API-Version")
+        
+        //現在の日付を取得
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
+        let day = calendar.component(.day, from: currentDate)
+        
+        //誕生日を取得
+        let selectedDate = datePicker.date
+        let birthYear = calendar.component(.year, from: selectedDate)
+        let birthMonth = calendar.component(.month, from: selectedDate)
+        let birthDay = calendar.component(.day, from: selectedDate)
+        
+        //HTTPボディの準備
+        let body: [String: Any] = [
+            "name": name,
+            "birthday": ["year": birthYear, "month": birthMonth, "day": birthDay],
+            "blood_type": bloodType,
+            "today": ["year": year, "month": month, "day": day]
+        ]
+        
+        //JSONにエンコード
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+        } catch {
+            print("Error: Unable to encode JSON")
+            return
+        }
+        
+        //リクエストの送信
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+                print("Error: HTTP Status Code \(httpResponse.statusCode)")
+                return
+            }
+            
+            if let data = data {
+                //レスポンスデータの処理
+                let responseData = String(data: data, encoding: .utf8) ?? ""
+                print("Response: \(responseData)")
+            }
+        }
+        task.resume()
     }
     
 }
