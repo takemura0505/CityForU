@@ -30,8 +30,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     private var progressViewLevel: Double = 0
     private var name = ""
-    private var birthday = Date()
     private var bloodType = ""
+    private var datePicker: UIDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         textField.addTarget(self, action: #selector(nextButtonTapped), for: .editingDidEnd)
         //backButtonを最初は非表示にしておく
         backButton.isHidden = true
+        //datePickerを設定
+        setDatePicker()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,14 +124,22 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             textField.placeholder = "名前を入力"
             textField.text = name
             backButton.isHidden = true
+            //datePickerを外す
+            textField.inputView = nil
         case 0.34:
             explainLabel.text = "生年月日を選択してください"
             textField.placeholder = "生年月日を選択"
             backButton.isHidden = false
+            //datePicker追加
+            textField.inputView = datePicker
+            // textFieldの初期値を設定
+            updateTextFieldWithDate(date: datePicker.date)
         case 0.68:
             explainLabel.text = "血液型を入力してください"
             textField.placeholder = "血液型を入力"
             textField.text = bloodType
+            //datePickerを外す
+            textField.inputView = nil
         default:
             break
         }
@@ -147,6 +157,29 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
+    }
+    
+    private func setDatePicker() {
+        // ピッカー設定
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = Locale.current
+        datePicker.datePickerMode = .date
+        // ピッカーの値が変わったときに呼ばれるメソッドを設定
+        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc private func dateChanged(_ sender: UIDatePicker) {
+        updateTextFieldWithDate(date: sender.date)
+    }
+    
+    //textFieldの値を更新
+    private func updateTextFieldWithDate(date: Date) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        textField.text = formatter.string(from: date)
     }
     
 }
