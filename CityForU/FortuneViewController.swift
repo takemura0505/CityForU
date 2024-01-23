@@ -16,6 +16,9 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var explainLabel: UILabel!
     
     private var progressViewLevel: Double = 0
+    private var name = ""
+    private var birthday = Date()
+    private var bloodType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,11 +79,15 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     //nextButtonがタップされた時の処理
    @objc private func nextButtonTapped() {
+       //データを保持
+       saveData(level: progressViewLevel, data: textField.text ?? "")
        //progressViewを動かす
        progressViewLevel += 0.34
        moveProgressView(level: progressViewLevel)
        //表示を変更する
        levelChanged()
+       //textFieldが0文字であればボタンを押せなくする
+       textFieldDidChange()
     }
     
     //textFieldの文字が変わったら呼び出される
@@ -99,12 +106,28 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         case 0:
             explainLabel.text = "名前を入力してください"
             textField.placeholder = "名前を入力"
+            textField.text = name
         case 0.34:
             explainLabel.text = "生年月日を選択してください"
             textField.placeholder = "生年月日を選択"
         case 0.68:
             explainLabel.text = "血液型を入力してください"
             textField.placeholder = "血液型を入力"
+            textField.text = bloodType
+        default:
+            break
+        }
+    }
+    
+    //段階ごとにデータを保持
+    private func saveData(level: Double, data: String) {
+        switch level {
+        case 0:
+            name = data
+        case 0.34:
+            break
+        case 0.68:
+            bloodType = data
         default:
             break
         }
