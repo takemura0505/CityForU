@@ -118,6 +118,9 @@
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="arrowshape.backward.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="backButtonTapped" destination="qvk-ev-NRq" eventType="touchUpInside" id="oy6-9B-1Gb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,6 +167,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="OUu-V6-Xk7" id="oy4-H1-6Hj"/>
                         <outlet property="explainLabel" destination="EP2-NT-BYG" id="a4O-hj-Fia"/>
                         <outlet property="nextButton" destination="9W9-Lg-6mQ" id="uhd-9w-4lM"/>
                         <outlet property="progressView" destination="XzO-tV-Aup" id="xY4-uK-Y0h"/>

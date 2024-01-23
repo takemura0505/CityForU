@@ -14,6 +14,19 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var explainLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBAction private func backButtonTapped() {
+        //データを保持
+        saveData(level: progressViewLevel, data: textField.text ?? "")
+        //progressViewを動かす
+        progressViewLevel -= 0.34
+        moveProgressView(level: progressViewLevel)
+        //表示を変更する
+        levelChanged()
+        //textFieldが0文字であればボタンを押せなくする
+        textFieldDidChange()
+    }
     
     private var progressViewLevel: Double = 0
     private var name = ""
@@ -32,7 +45,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         //textFieldのnextボタンタップでnextボタンと同じ処理をする
         textField.addTarget(self, action: #selector(nextButtonTapped), for: .editingDidEnd)
-        
+        //backButtonを最初は非表示にしておく
+        backButton.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -107,9 +121,11 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             explainLabel.text = "名前を入力してください"
             textField.placeholder = "名前を入力"
             textField.text = name
+            backButton.isHidden = true
         case 0.34:
             explainLabel.text = "生年月日を選択してください"
             textField.placeholder = "生年月日を選択"
+            backButton.isHidden = false
         case 0.68:
             explainLabel.text = "血液型を入力してください"
             textField.placeholder = "血液型を入力"
