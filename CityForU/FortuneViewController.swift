@@ -11,6 +11,9 @@ class FortuneViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    private var progressViewLevel: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,8 @@ class FortuneViewController: UIViewController {
         setButtonUI(button: nextButton)
         //スワイプでキーボード閉じる処理
         scrollView.keyboardDismissMode = .interactive
+        //nextボタンタップ時の処理を追加
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +60,18 @@ class FortuneViewController: UIViewController {
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 40
         button.layer.shadowColor = UIColor.systemTeal.cgColor
+    }
+    
+    //progressViewを動かす
+    private func moveProgressView(level: Double) {
+        progressView.setProgress(Float(progressViewLevel), animated: true)
+    }
+    
+    //nextButtonがタップされた時の処理
+   @objc private func nextButtonTapped() {
+       //progressViewを動かす
+       progressViewLevel += 0.34
+       moveProgressView(level: progressViewLevel)
     }
     
 }

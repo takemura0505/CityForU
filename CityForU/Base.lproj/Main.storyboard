@@ -97,7 +97,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="s1z-zt-TpM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-NT-BYG">
                                                 <rect key="frame" x="188.66666666666666" y="150" width="16" height="21"/>
@@ -105,8 +105,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-tV-Aup">
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-tV-Aup">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="4"/>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
                                             </progressView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-V6-Xk7">
                                                 <rect key="frame" x="50" y="374.66666666666669" width="35" height="35"/>
@@ -164,6 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="9W9-Lg-6mQ" id="uhd-9w-4lM"/>
+                        <outlet property="progressView" destination="XzO-tV-Aup" id="xY4-uK-Y0h"/>
                         <outlet property="scrollView" destination="BKR-oN-MU5" id="8SN-EU-uvG"/>
                     </connections>
                 </viewController>
