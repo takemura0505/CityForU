@@ -13,6 +13,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var explainLabel: UILabel!
     
     private var progressViewLevel: Double = 0
     
@@ -26,6 +27,9 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         //textFieldの文字が変わったら呼び出すようにする
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        //textFieldのnextボタンタップでnextボタンと同じ処理をする
+        textField.addTarget(self, action: #selector(nextButtonTapped), for: .editingDidEnd)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,6 +79,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
        //progressViewを動かす
        progressViewLevel += 0.34
        moveProgressView(level: progressViewLevel)
+       //表示を変更する
+       levelChanged()
     }
     
     //textFieldの文字が変わったら呼び出される
@@ -84,6 +90,20 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             nextButton.isEnabled = false
         } else {
             nextButton.isEnabled = true
+        }
+    }
+    
+    //段階ごとに表示を変更する
+    private func levelChanged() {
+        switch progressViewLevel {
+        case 0:
+            explainLabel.text = "名前を入力してください"
+        case 0.34:
+            explainLabel.text = "生年月日を選択してください"
+        case 0.68:
+            explainLabel.text = "血液型を入力してください"
+        default:
+            break
         }
     }
     

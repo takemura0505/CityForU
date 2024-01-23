@@ -97,10 +97,10 @@
                                                     <constraint firstAttribute="height" constant="50" id="s1z-zt-TpM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-NT-BYG">
-                                                <rect key="frame" x="188.66666666666666" y="150" width="16" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-NT-BYG">
+                                                <rect key="frame" x="109" y="150" width="175" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -164,6 +164,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="explainLabel" destination="EP2-NT-BYG" id="a4O-hj-Fia"/>
                         <outlet property="nextButton" destination="9W9-Lg-6mQ" id="uhd-9w-4lM"/>
                         <outlet property="progressView" destination="XzO-tV-Aup" id="xY4-uK-Y0h"/>
                         <outlet property="scrollView" destination="BKR-oN-MU5" id="8SN-EU-uvG"/>
