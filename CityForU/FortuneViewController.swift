@@ -98,10 +98,13 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         switch progressViewLevel {
         case 0:
             explainLabel.text = "名前を入力してください"
+            textField.placeholder = "名前を入力"
         case 0.34:
             explainLabel.text = "生年月日を選択してください"
+            textField.placeholder = "生年月日を選択"
         case 0.68:
             explainLabel.text = "血液型を入力してください"
+            textField.placeholder = "血液型を入力"
         default:
             break
         }
