@@ -19,17 +19,17 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBAction private func backButtonTapped() {
         view.endEditing(true)
         //データを保持
-        saveData(level: progressViewLevel, data: textField.text ?? "")
+        saveData(level: progressLevel, data: textField.text ?? "")
         //progressViewを動かす
-        progressViewLevel -= 0.34
-        moveProgressView(level: progressViewLevel)
+        progressLevel -= 0.34
+        moveProgressView(level: progressLevel)
         //表示を変更する
         levelChanged()
         //textFieldが0文字であればボタンを押せなくする
         textFieldDidChange()
     }
     
-    private var progressViewLevel: Double = 0
+    private var progressLevel: Double = 0
     private var name = ""
     private var bloodType = ""
     private var datePicker = UIDatePicker()
@@ -91,19 +91,19 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     //progressViewを動かす
     private func moveProgressView(level: Double) {
-        progressView.setProgress(Float(progressViewLevel), animated: true)
+        progressView.setProgress(Float(progressLevel), animated: true)
     }
     
     //nextButtonがタップされた時の処理
    @objc private func nextButtonTapped() {
        view.endEditing(true)
        //データを保持
-       saveData(level: progressViewLevel, data: textField.text ?? "")
+       saveData(level: progressLevel, data: textField.text ?? "")
        //progressViewを動かす
-       progressViewLevel += 0.34
-       moveProgressView(level: progressViewLevel)
+       progressLevel += 0.34
+       moveProgressView(level: progressLevel)
        //すべての入力が終了していればデータを送信する
-       if progressViewLevel > 0.68 {
+       if progressLevel > 0.68 {
            sendData()
        }
        //表示を変更する
@@ -124,7 +124,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     //段階ごとに表示を変更する
     private func levelChanged() {
-        switch progressViewLevel {
+        switch progressLevel {
         case 0:
             explainLabel.text = "名前を入力してください"
             textField.placeholder = "名前を入力"
