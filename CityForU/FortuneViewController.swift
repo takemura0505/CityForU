@@ -102,9 +102,9 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
        //progressViewを動かす
        progressViewLevel += 0.34
        moveProgressView(level: progressViewLevel)
+       //すべての入力が終了していればデータを送信する
        if progressViewLevel > 0.68 {
            sendData()
-           print("送信しました")
        }
        //表示を変更する
        levelChanged()
@@ -166,12 +166,12 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setDatePicker() {
-        // ピッカー設定
+        //datePicker設定
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.timeZone = NSTimeZone.local
         datePicker.locale = Locale.current
         datePicker.datePickerMode = .date
-        // ピッカーの値が変わったときに呼ばれるメソッドを設定
+        //datePickerの値が変わったときに呼ばれるメソッドを設定
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
@@ -188,6 +188,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         textField.text = formatter.string(from: date)
     }
     
+    //APIにデータを送信しレスポンスを取得
     private func sendData() {
         //URLの構築
         let baseUrl = "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"
