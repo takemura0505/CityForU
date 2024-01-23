@@ -7,11 +7,12 @@
 
 import UIKit
 
-class FortuneViewController: UIViewController {
+class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var textField: UITextField!
     
     private var progressViewLevel: Double = 0
     
@@ -23,6 +24,8 @@ class FortuneViewController: UIViewController {
         scrollView.keyboardDismissMode = .interactive
         //nextボタンタップ時の処理を追加
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        //textFieldの文字が変わったら呼び出すようにする
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +42,7 @@ class FortuneViewController: UIViewController {
     }
     
     //キーボード表示時の処理
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc private func keyboardWillShow(notification: NSNotification) {
         //キーボードの高さを取得
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let keyboardHeight = keyboardSize.height
@@ -48,7 +51,7 @@ class FortuneViewController: UIViewController {
     }
     
     //キーボード非表示時の処理
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         //下の高さに戻す
         scrollView.contentInset = .zero
     }
@@ -72,6 +75,16 @@ class FortuneViewController: UIViewController {
        //progressViewを動かす
        progressViewLevel += 0.34
        moveProgressView(level: progressViewLevel)
+    }
+    
+    //textFieldの文字が変わったら呼び出される
+    @objc private func textFieldDidChange() {
+        //textFieldが0文字であればボタンを押せなくする
+        if textField.text?.count == 0 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
     }
     
 }

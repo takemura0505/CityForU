@@ -79,7 +79,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDg-yL-bR4">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-Lg-6mQ">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-Lg-6mQ">
                                                 <rect key="frame" x="50" y="639" width="293" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -167,6 +167,7 @@
                         <outlet property="nextButton" destination="9W9-Lg-6mQ" id="uhd-9w-4lM"/>
                         <outlet property="progressView" destination="XzO-tV-Aup" id="xY4-uK-Y0h"/>
                         <outlet property="scrollView" destination="BKR-oN-MU5" id="8SN-EU-uvG"/>
+                        <outlet property="textField" destination="Txl-pu-SP4" id="YWc-Nw-gwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cG1-s0-chE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
