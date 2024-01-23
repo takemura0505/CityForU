@@ -17,6 +17,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var backButton: UIButton!
     
     @IBAction private func backButtonTapped() {
+        view.endEditing(true)
         //データを保持
         saveData(level: progressViewLevel, data: textField.text ?? "")
         //progressViewを動かす
@@ -43,8 +44,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         //textFieldの文字が変わったら呼び出すようにする
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        //textFieldのnextボタンタップでnextボタンと同じ処理をする
-        textField.addTarget(self, action: #selector(nextButtonTapped), for: .editingDidEnd)
+        //textFieldのdelegateを有効にする
+        textField.delegate = self
         //backButtonを最初は非表示にしておく
         backButton.isHidden = true
         //datePickerを設定
@@ -180,6 +181,16 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         textField.text = formatter.string(from: date)
+    }
+    
+}
+
+extension FortuneViewController {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nextButtonTapped()
+        textField.resignFirstResponder()
+        return true
     }
     
 }
