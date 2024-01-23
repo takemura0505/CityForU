@@ -16,11 +16,14 @@ class FortuneViewController: UIViewController {
         super.viewDidLoad()
         //nextButtonのUIをセット
         setButtonUI(button: nextButton)
+        //スワイプでキーボード閉じる処理
+        scrollView.keyboardDismissMode = .interactive
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         //キーボードの表示非表示を確認
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        //スワイプでキーボード閉じる処理
-        scrollView.keyboardDismissMode = .interactive
     }
     
     override func viewWillDisappear(_ animated: Bool) {
