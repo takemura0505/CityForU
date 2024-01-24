@@ -98,9 +98,13 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
    @objc private func nextButtonTapped() {
        view.endEditing(true)
        //textFieldの前後の空白を削除
-       let textFieldText = textField.text?.trimmingCharacters(in: .newlines) ?? ""
+       let textFieldText = textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
        //データを保持
        saveData(level: progressLevel, data: textFieldText)
+       //最後のレベルであれば血液型をチェックしデータを送信
+       if progressLevel == 0.68 {
+           checkBloodTypeAndSend()
+       }
        //progressViewを動かす
        progressLevel += 0.34
        moveProgressView(level: progressLevel)
@@ -145,8 +149,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             //datePickerを外す
             textField.inputView = nil
         default:
-            //データを送信
-            sendData()
+            break
         }
     }
     
@@ -250,6 +253,27 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             }
         }
         task.resume()
+    }
+    
+    //存在する血液型かチェック
+    private func checkBloodType(bloodType: String) -> Bool {
+        if bloodType == "a" || bloodType == "b" || bloodType == "o" || bloodType == "ab" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func checkBloodTypeAndSend() {
+        //血液型が大文字だとデータ送信がうまくいかないので、小文字に変換
+        bloodType = bloodType.lowercased()
+        //血液型が存在すればデータを送信
+        if checkBloodType(bloodType: bloodType) {
+            sendData()
+        } else {
+            //血液型が間違っていればレベルを巻き戻す
+            progressLevel -= 0.34
+        }
     }
     
 }
