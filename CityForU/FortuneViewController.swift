@@ -99,15 +99,11 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
        view.endEditing(true)
        //textFieldの前後の空白を削除
        let textFieldText = textField.text?.trimmingCharacters(in: .newlines) ?? ""
-       //データを保持 
+       //データを保持
        saveData(level: progressLevel, data: textFieldText)
        //progressViewを動かす
        progressLevel += 0.34
        moveProgressView(level: progressLevel)
-       //すべての入力が終了していればデータを送信する
-       if progressLevel > 0.68 {
-           sendData()
-       }
        //表示を変更する
        levelChanged()
        //textFieldが0文字であればボタンを押せなくする
@@ -149,7 +145,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             //datePickerを外す
             textField.inputView = nil
         default:
-            break
+            //データを送信
+            sendData()
         }
     }
     
@@ -157,7 +154,6 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     private func saveData(level: Double, data: String) {
         switch level {
         case 0:
-            
             name = data
         case 0.34:
             break
