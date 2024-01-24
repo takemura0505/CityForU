@@ -97,8 +97,10 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     //nextButtonがタップされた時の処理
    @objc private func nextButtonTapped() {
        view.endEditing(true)
-       //データを保持
-       saveData(level: progressLevel, data: textField.text ?? "")
+       //textFieldの前後の空白を削除
+       let textFieldText = textField.text?.trimmingCharacters(in: .newlines) ?? ""
+       //データを保持 
+       saveData(level: progressLevel, data: textFieldText)
        //progressViewを動かす
        progressLevel += 0.34
        moveProgressView(level: progressLevel)
@@ -155,6 +157,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     private func saveData(level: Double, data: String) {
         switch level {
         case 0:
+            
             name = data
         case 0.34:
             break
