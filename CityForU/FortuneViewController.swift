@@ -33,6 +33,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     private var name = ""
     private var bloodType = ""
     private var datePicker = UIDatePicker()
+    private var indicatorBackgroundView: UIView!
+    private var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,8 +103,11 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
        let textFieldText = textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
        //データを保持
        saveData(level: progressLevel, data: textFieldText)
-       //最後のレベルであれば血液型をチェックしデータを送信
+       //最後のレベルであればロード画面を表示し、血液型をチェックしデータを送信
        if progressLevel == 0.68 {
+           //ロード画面表示
+           showIndicator()
+           //血液型をチェックしデータを送信
            checkBloodTypeAndSend()
        }
        //progressViewを動かす
@@ -177,6 +182,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
+    //随時PickerのデータをtextFieldに反映させる
     @objc private func dateChanged(_ sender: UIDatePicker) {
         updateTextFieldWithDate(date: sender.date)
     }
@@ -232,17 +238,26 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
         } catch {
             print("Error: Unable to encode JSON")
+            hideIndicator()
+            progressLevel -= 0.34
+            moveProgressView(level: progressLevel)
             return
         }
         
         //リクエストの送信
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
+                hideIndicator()
+                progressLevel -= 0.34
+                moveProgressView(level: progressLevel)
                 return
             }
             if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
                 print("Error: HTTP Status Code \(httpResponse.statusCode)")
+                hideIndicator()
+                progressLevel -= 0.34
+                moveProgressView(level: progressLevel)
                 return
             }
             
@@ -273,6 +288,38 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         } else {
             //血液型が間違っていればレベルを巻き戻す
             progressLevel -= 0.34
+            hideIndicator()
+        }
+    }
+    
+    //indicator表示
+    private func showIndicator() {
+        //indicatorの背景の設定
+        indicatorBackgroundView = UIView(frame: self.view.bounds)
+        indicatorBackgroundView?.backgroundColor = UIColor.black
+        indicatorBackgroundView?.alpha = 0.4
+        indicatorBackgroundView?.tag = 1
+        
+        indicator = UIActivityIndicatorView()
+        indicator?.style = .large
+        indicator?.center = self.view.center
+        indicator?.color = UIColor.white
+        //アニメーション停止と同時に隠す設定
+        indicator?.hidesWhenStopped = true
+        //表示
+        indicatorBackgroundView?.addSubview(indicator!)
+        self.view.addSubview(indicatorBackgroundView!)
+        
+        indicator?.startAnimating()
+    }
+    
+    //indicator非表示
+    private func hideIndicator(){
+        // viewにローディング画面が出ていれば閉じる
+        DispatchQueue.main.async {
+            if let viewWithTag = self.view.viewWithTag(1) {
+                viewWithTag.removeFromSuperview()
+            }
         }
     }
     
