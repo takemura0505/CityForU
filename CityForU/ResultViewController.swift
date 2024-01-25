@@ -11,7 +11,11 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var infoTextView: UITextView!
+    @IBOutlet weak var capitalTextView: UITextView!
+    @IBOutlet weak var citizenDayTextView: UITextView!
+    @IBOutlet weak var hasCoastLineTextView: UITextView!
+    @IBOutlet weak var explainTextView: UITextView!
+    
     
     public var responseData: Data?
     
@@ -37,10 +41,12 @@ class ResultViewController: UIViewController {
                     logoImageView.image = image
                 }
             }
-            //県名を表示
-            titleLabel.text = prefecture.name
             //情報を表示
-            infoTextView.text = "県庁所在地 : \(prefecture.capital)\n県民の日 : \(String(describing: prefecture.citizenDay?.month))月\(String(describing: prefecture.citizenDay?.day))日\n海岸線 : \(coastLine)\n\(prefecture.brief)"
+            titleLabel.text = prefecture.name
+            capitalTextView.text = "県庁所在地 : \(prefecture.capital)"
+            citizenDayTextView.text = "県民の日 : \(prefecture.citizenDay?.month ?? 0)月\( prefecture.citizenDay?.day ?? 0)日"
+            hasCoastLineTextView.text = "海岸線 : \(coastLine)"
+            explainTextView.text = "\(prefecture.brief)"
             print("Prefecture name: \(prefecture)")
         } catch {
             print("Decoding error: \(error)")
