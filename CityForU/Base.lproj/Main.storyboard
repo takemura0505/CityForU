@@ -186,13 +186,88 @@
                     <view key="view" contentMode="scaleToFill" id="t55-JN-XzO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-pM-3A1">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJC-SC-DhQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-ag-5aj">
+                                                <rect key="frame" x="181.66666666666666" y="50" width="30" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1OT-oW-0j1">
+                                                <rect key="frame" x="40" y="440" width="313" height="319"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">県庁所在地：--
+県民の日：--
+海岸線：--
+
+--</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-q1-9Ra">
+                                                <rect key="frame" x="40" y="369" width="313" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-5K-c9u">
+                                                <rect key="frame" x="50" y="111" width="293" height="208"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="rrm-ag-5aj" firstAttribute="top" secondItem="cJC-SC-DhQ" secondAttribute="top" constant="50" id="0IG-FL-3rZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="1OT-oW-0j1" secondAttribute="trailing" constant="40" id="4vm-77-OaN"/>
+                                            <constraint firstItem="rrm-ag-5aj" firstAttribute="centerX" secondItem="cJC-SC-DhQ" secondAttribute="centerX" id="8cx-HR-u3M"/>
+                                            <constraint firstItem="FA3-5K-c9u" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="50" id="Aah-pR-Vos"/>
+                                            <constraint firstAttribute="trailing" secondItem="FA3-5K-c9u" secondAttribute="trailing" constant="50" id="BuY-9k-BJu"/>
+                                            <constraint firstAttribute="trailing" secondItem="hMv-q1-9Ra" secondAttribute="trailing" constant="40" id="GX7-BA-gxd"/>
+                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="40" id="HyI-da-T9B"/>
+                                            <constraint firstItem="FA3-5K-c9u" firstAttribute="top" secondItem="rrm-ag-5aj" secondAttribute="bottom" constant="20" id="PLQ-BG-KeE"/>
+                                            <constraint firstItem="hMv-q1-9Ra" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="40" id="Qpd-mo-wbG"/>
+                                            <constraint firstItem="hMv-q1-9Ra" firstAttribute="top" secondItem="FA3-5K-c9u" secondAttribute="bottom" constant="50" id="U7C-Hn-Zzb"/>
+                                            <constraint firstAttribute="bottom" secondItem="1OT-oW-0j1" secondAttribute="bottom" id="cTM-XW-HHc"/>
+                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="top" secondItem="hMv-q1-9Ra" secondAttribute="bottom" constant="50" id="mNM-mj-pbB"/>
+                                            <constraint firstItem="hMv-q1-9Ra" firstAttribute="centerY" secondItem="cJC-SC-DhQ" secondAttribute="centerY" id="rZV-Cl-8At"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cJC-SC-DhQ" secondAttribute="bottom" id="6XO-zi-6RP"/>
+                                    <constraint firstAttribute="trailing" secondItem="cJC-SC-DhQ" secondAttribute="trailing" id="D04-6k-sZC"/>
+                                    <constraint firstItem="7fX-iR-QDz" firstAttribute="height" secondItem="VCE-pM-3A1" secondAttribute="height" id="DCC-U4-OzB"/>
+                                    <constraint firstItem="cJC-SC-DhQ" firstAttribute="width" secondItem="VCE-pM-3A1" secondAttribute="width" id="TN6-Xy-BLA"/>
+                                    <constraint firstItem="cJC-SC-DhQ" firstAttribute="top" secondItem="VCE-pM-3A1" secondAttribute="top" id="aVo-oR-XgT"/>
+                                    <constraint firstItem="Ou1-uz-BDQ" firstAttribute="width" secondItem="VCE-pM-3A1" secondAttribute="width" id="b0h-0f-EfU"/>
+                                    <constraint firstItem="7fX-iR-QDz" firstAttribute="width" secondItem="VCE-pM-3A1" secondAttribute="width" id="fwJ-1J-uKc"/>
+                                    <constraint firstItem="cJC-SC-DhQ" firstAttribute="height" secondItem="VCE-pM-3A1" secondAttribute="height" id="i7V-JB-dUK"/>
+                                    <constraint firstItem="cJC-SC-DhQ" firstAttribute="leading" secondItem="VCE-pM-3A1" secondAttribute="leading" id="m9h-bG-FBS"/>
+                                    <constraint firstItem="Ou1-uz-BDQ" firstAttribute="height" secondItem="VCE-pM-3A1" secondAttribute="height" id="y03-jw-LYR"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Ou1-uz-BDQ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="7fX-iR-QDz"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4qx-6Y-WPb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VCE-pM-3A1" firstAttribute="trailing" secondItem="4qx-6Y-WPb" secondAttribute="trailing" id="Ig2-XH-Z3y"/>
+                            <constraint firstItem="VCE-pM-3A1" firstAttribute="leading" secondItem="4qx-6Y-WPb" secondAttribute="leading" id="afT-mk-nGy"/>
+                            <constraint firstItem="VCE-pM-3A1" firstAttribute="top" secondItem="4qx-6Y-WPb" secondAttribute="top" id="dPr-mv-rnv"/>
+                            <constraint firstItem="VCE-pM-3A1" firstAttribute="bottom" secondItem="4qx-6Y-WPb" secondAttribute="bottom" id="tCy-LB-3n8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8j-BR-i8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715" y="4"/>
+            <point key="canvasLocation" x="1713.740458015267" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
