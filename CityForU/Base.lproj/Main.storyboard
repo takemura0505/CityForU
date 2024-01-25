@@ -187,7 +187,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-pM-3A1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-pM-3A1">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJC-SC-DhQ">
@@ -200,7 +200,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1OT-oW-0j1">
-                                                <rect key="frame" x="40" y="440" width="313" height="319"/>
+                                                <rect key="frame" x="20" y="400" width="353" height="359"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">県庁所在地：--
 県民の日：--
@@ -212,7 +212,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-q1-9Ra">
-                                                <rect key="frame" x="40" y="369" width="313" height="21"/>
+                                                <rect key="frame" x="20" y="369" width="353" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -224,17 +224,17 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="rrm-ag-5aj" firstAttribute="top" secondItem="cJC-SC-DhQ" secondAttribute="top" constant="50" id="0IG-FL-3rZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="1OT-oW-0j1" secondAttribute="trailing" constant="40" id="4vm-77-OaN"/>
+                                            <constraint firstAttribute="trailing" secondItem="1OT-oW-0j1" secondAttribute="trailing" constant="20" id="4vm-77-OaN"/>
                                             <constraint firstItem="rrm-ag-5aj" firstAttribute="centerX" secondItem="cJC-SC-DhQ" secondAttribute="centerX" id="8cx-HR-u3M"/>
                                             <constraint firstItem="FA3-5K-c9u" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="50" id="Aah-pR-Vos"/>
                                             <constraint firstAttribute="trailing" secondItem="FA3-5K-c9u" secondAttribute="trailing" constant="50" id="BuY-9k-BJu"/>
-                                            <constraint firstAttribute="trailing" secondItem="hMv-q1-9Ra" secondAttribute="trailing" constant="40" id="GX7-BA-gxd"/>
-                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="40" id="HyI-da-T9B"/>
+                                            <constraint firstAttribute="trailing" secondItem="hMv-q1-9Ra" secondAttribute="trailing" constant="20" id="GX7-BA-gxd"/>
+                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="20" id="HyI-da-T9B"/>
                                             <constraint firstItem="FA3-5K-c9u" firstAttribute="top" secondItem="rrm-ag-5aj" secondAttribute="bottom" constant="20" id="PLQ-BG-KeE"/>
-                                            <constraint firstItem="hMv-q1-9Ra" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="40" id="Qpd-mo-wbG"/>
+                                            <constraint firstItem="hMv-q1-9Ra" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="20" id="Qpd-mo-wbG"/>
                                             <constraint firstItem="hMv-q1-9Ra" firstAttribute="top" secondItem="FA3-5K-c9u" secondAttribute="bottom" constant="50" id="U7C-Hn-Zzb"/>
                                             <constraint firstAttribute="bottom" secondItem="1OT-oW-0j1" secondAttribute="bottom" id="cTM-XW-HHc"/>
-                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="top" secondItem="hMv-q1-9Ra" secondAttribute="bottom" constant="50" id="mNM-mj-pbB"/>
+                                            <constraint firstItem="1OT-oW-0j1" firstAttribute="top" secondItem="hMv-q1-9Ra" secondAttribute="bottom" constant="10" id="mNM-mj-pbB"/>
                                             <constraint firstItem="hMv-q1-9Ra" firstAttribute="centerY" secondItem="cJC-SC-DhQ" secondAttribute="centerY" id="rZV-Cl-8At"/>
                                         </constraints>
                                     </view>
@@ -264,6 +264,11 @@
                             <constraint firstItem="VCE-pM-3A1" firstAttribute="bottom" secondItem="4qx-6Y-WPb" secondAttribute="bottom" id="tCy-LB-3n8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="infoTextView" destination="1OT-oW-0j1" id="JsC-am-b4L"/>
+                        <outlet property="logoImageView" destination="FA3-5K-c9u" id="Dfo-lQ-Xh4"/>
+                        <outlet property="titleLabel" destination="rrm-ag-5aj" id="djG-QJ-1qP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8j-BR-i8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

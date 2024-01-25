@@ -18,6 +18,7 @@
 		875145082B5E3E190016C981 /* CityForUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875145072B5E3E190016C981 /* CityForUUITests.swift */; };
 		8751450A2B5E3E190016C981 /* CityForUUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */; };
 		87603FF82B622BB9009C0314 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87603FF72B622BB9009C0314 /* ResultViewController.swift */; };
+		87603FFA2B626080009C0314 /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87603FF92B626080009C0314 /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		875145072B5E3E190016C981 /* CityForUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityForUUITests.swift; sourceTree = "<group>"; };
 		875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityForUUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87603FF72B622BB9009C0314 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		87603FF92B626080009C0314 /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				872AF80F2B5E838A00DB108F /* HomeViewController.swift */,
 				872AF8112B5E850F00DB108F /* FortuneViewController.swift */,
 				87603FF72B622BB9009C0314 /* ResultViewController.swift */,
+				87603FF92B626080009C0314 /* Prefecture.swift */,
 				875144EC2B5E3E180016C981 /* Main.storyboard */,
 				875144EF2B5E3E190016C981 /* Assets.xcassets */,
 				875144F12B5E3E190016C981 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87603FFA2B626080009C0314 /* Prefecture.swift in Sources */,
 				87603FF82B622BB9009C0314 /* ResultViewController.swift in Sources */,
 				872AF8122B5E850F00DB108F /* FortuneViewController.swift in Sources */,
 				875144E72B5E3E180016C981 /* AppDelegate.swift in Sources */,

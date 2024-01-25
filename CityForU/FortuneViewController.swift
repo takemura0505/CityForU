@@ -263,8 +263,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             
             if let data = data {
                 //レスポンスデータの処理
-                let responseData = String(data: data, encoding: .utf8) ?? ""
-                pushViewControllerWithData(responseData: responseData)
+                pushViewControllerWithData(responseData: data)
             }
         }
         task.resume()
@@ -324,7 +323,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     }
     
     //データを渡し画面遷移
-    private func pushViewControllerWithData(responseData: String) {
+    private func pushViewControllerWithData(responseData: Data) {
         //mainスレッドで実行
         DispatchQueue.main.async { [self] in
             //resultVCにデータを渡し遷移
