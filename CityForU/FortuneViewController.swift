@@ -87,7 +87,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = button.bounds.height / 2
         //影を入れる
         button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 40
+        button.layer.shadowRadius = 30
         button.layer.shadowColor = UIColor.systemTeal.cgColor
     }
     
@@ -331,6 +331,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             let resultVC = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
             resultVC.responseData = responseData
             navigationController?.pushViewController(resultVC, animated: true)
+            hideIndicator()
         }
     }
     

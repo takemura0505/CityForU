@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         button.layer.cornerRadius = button.bounds.height / 2
         //影を入れる
         button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 40
+        button.layer.shadowRadius = 30
         button.layer.shadowColor = UIColor.systemTeal.cgColor
     }
     
