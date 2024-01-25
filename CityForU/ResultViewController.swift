@@ -22,6 +22,8 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayResult(data: responseData ?? Data())
+        //logoImageViewを角丸に
+        logoImageView.layer.cornerRadius = 20
     }
     
     //結果を表示
