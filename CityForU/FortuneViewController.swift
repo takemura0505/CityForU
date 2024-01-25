@@ -264,7 +264,13 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             if let data = data {
                 //レスポンスデータの処理
                 let responseData = String(data: data, encoding: .utf8) ?? ""
-                print("Response: \(responseData)")
+                //mainスレッドで実行
+                DispatchQueue.main.async { [self] in
+                    //resultVCにデータを渡し遷移
+                    let resultVC = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+                    resultVC.responseData = responseData
+                    navigationController?.pushViewController(resultVC, animated: true)
+                }
             }
         }
         task.resume()

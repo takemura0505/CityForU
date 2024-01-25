@@ -179,6 +179,21 @@
             </objects>
             <point key="canvasLocation" x="916.79389312977094" y="3.5211267605633805"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="V5f-bp-51D">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z1f-iu-OAs" customClass="ResultViewController" customModule="CityForU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t55-JN-XzO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4qx-6Y-WPb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8j-BR-i8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowshape.backward.circle.fill" catalog="system" width="128" height="123"/>
