@@ -28,6 +28,7 @@ class ResultViewController: UIViewController {
     
     //結果を表示
     private func displayResult(data: Data) {
+        print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
         //データを変換
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -46,10 +47,15 @@ class ResultViewController: UIViewController {
             //情報を表示
             titleLabel.text = prefecture.name
             capitalTextView.text = "県庁所在地 : \(prefecture.capital)"
-            citizenDayTextView.text = "県民の日 : \(prefecture.citizenDay?.month ?? 0)月\( prefecture.citizenDay?.day ?? 0)日"
+            // 県民の日の表示を制御
+            if let citizenDay = prefecture.citizenDay {
+                citizenDayTextView.isHidden = false
+                citizenDayTextView.text = "県民の日 : \(citizenDay.month)月\(citizenDay.day)日"
+            } else {
+                citizenDayTextView.isHidden = true
+            }
             hasCoastLineTextView.text = "海岸線 : \(coastLine)"
-            explainTextView.text = "\(prefecture.brief)"
-            print("Prefecture name: \(prefecture)")
+            explainTextView.text = prefecture.brief
         } catch {
             print("Decoding error: \(error)")
         }

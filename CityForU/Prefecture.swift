@@ -14,13 +14,10 @@ struct Prefecture: Codable {
     var hasCoastLine: Bool
     var logoUrl: String
     var brief: String
-
-    enum CodingKeys: String, CodingKey {
-        case name, capital, citizenDay, hasCoastLine, logoUrl, brief
-    }
-
+    
     struct CitizenDay: Codable {
         var month: Int
         var day: Int
     }
+    
 }
