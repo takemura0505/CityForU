@@ -15,6 +15,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak private var textField: UITextField!
     @IBOutlet weak private var explainLabel: UILabel!
     @IBOutlet weak private var backButton: UIButton!
+    @IBOutlet weak private var bloodWarnLabel: UILabel!
     
     @IBAction private func backButtonTapped() {
         view.endEditing(true)
@@ -27,6 +28,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         levelChanged()
         //textFieldが0文字であればボタンを押せなくする
         textFieldDidChange()
+        //血液型の警告ラベルを消しておく
+        bloodWarnLabel.isHidden = true
     }
     
     private var progressLevel: Double = 0
@@ -52,6 +55,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         backButton.isHidden = true
         //datePickerを設定
         setDatePicker()
+        //血液型の警告ラベルを消しておく
+        bloodWarnLabel.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -287,6 +292,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         } else {
             //血液型が間違っていればレベルを巻き戻す
             progressLevel -= 0.34
+            //警告を出す
+            bloodWarnLabel.isHidden = false
             hideIndicator()
         }
     }
