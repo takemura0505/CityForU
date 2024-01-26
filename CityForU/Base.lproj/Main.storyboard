@@ -47,13 +47,29 @@
                                     <action selector="fortuneButtonTapped" destination="HN5-uN-pAQ" eventType="touchUpInside" id="Ptu-xB-K1A"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="y0i-gT-wrA">
+                                <rect key="frame" x="10" y="263" width="373" height="285"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="ws0-8n-oj0">
+                                <rect key="frame" x="40" y="133" width="313" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4x4-0L-zfA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7I0-vd-qHo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7I0-vd-qHo" firstAttribute="trailing" secondItem="ws0-8n-oj0" secondAttribute="trailing" constant="40" id="5iu-6G-cnM"/>
+                            <constraint firstItem="ws0-8n-oj0" firstAttribute="top" secondItem="7I0-vd-qHo" secondAttribute="top" constant="30" id="GoR-3D-Dqo"/>
                             <constraint firstItem="7I0-vd-qHo" firstAttribute="trailing" secondItem="an4-9R-koZ" secondAttribute="trailing" constant="50" id="HnM-35-DXp"/>
+                            <constraint firstItem="7I0-vd-qHo" firstAttribute="trailing" secondItem="y0i-gT-wrA" secondAttribute="trailing" constant="10" id="Jvz-5L-aAN"/>
                             <constraint firstItem="7I0-vd-qHo" firstAttribute="bottom" secondItem="an4-9R-koZ" secondAttribute="bottom" constant="70" id="aA0-e3-1IH"/>
                             <constraint firstItem="an4-9R-koZ" firstAttribute="leading" secondItem="7I0-vd-qHo" secondAttribute="leading" constant="50" id="aG7-ef-n4y"/>
+                            <constraint firstItem="an4-9R-koZ" firstAttribute="top" secondItem="y0i-gT-wrA" secondAttribute="bottom" constant="150" id="pBc-Tg-chz"/>
+                            <constraint firstItem="y0i-gT-wrA" firstAttribute="top" secondItem="ws0-8n-oj0" secondAttribute="bottom" constant="30" id="pNI-om-bTV"/>
+                            <constraint firstItem="y0i-gT-wrA" firstAttribute="leading" secondItem="7I0-vd-qHo" secondAttribute="leading" constant="10" id="tdH-8b-qeU"/>
+                            <constraint firstItem="ws0-8n-oj0" firstAttribute="leading" secondItem="7I0-vd-qHo" secondAttribute="leading" constant="40" id="tln-LG-3Ed"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lUL-nz-FV7"/>
@@ -63,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdB-Nj-gzn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
         <!--Fortune View Controller-->
         <scene sceneID="2x0-6H-dZ9">
@@ -324,6 +340,8 @@
     </scenes>
     <resources>
         <image name="arrowshape.backward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="map" width="200" height="200"/>
+        <image name="title" width="432.5" height="105.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
