@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var fortuneButton: UIButton!
+    @IBOutlet weak private var fortuneButton: UIButton!
     
     @IBAction private func fortuneButtonTapped() {
         //占う画面へ遷移

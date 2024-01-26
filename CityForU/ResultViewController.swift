@@ -9,13 +9,12 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var capitalTextView: UITextView!
-    @IBOutlet weak var citizenDayTextView: UITextView!
-    @IBOutlet weak var hasCoastLineTextView: UITextView!
-    @IBOutlet weak var explainTextView: UITextView!
-    
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var logoImageView: UIImageView!
+    @IBOutlet weak private var capitalTextView: UITextView!
+    @IBOutlet weak private var citizenDayTextView: UITextView!
+    @IBOutlet weak private var hasCoastLineTextView: UITextView!
+    @IBOutlet weak private var explainTextView: UITextView!
     
     public var responseData: Data?
     

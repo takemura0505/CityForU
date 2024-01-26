@@ -9,12 +9,12 @@ import UIKit
 
 class FortuneViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var explainLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak private var nextButton: UIButton!
+    @IBOutlet weak private var scrollView: UIScrollView!
+    @IBOutlet weak private var progressView: UIProgressView!
+    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet weak private var explainLabel: UILabel!
+    @IBOutlet weak private var backButton: UIButton!
     
     @IBAction private func backButtonTapped() {
         view.endEditing(true)
