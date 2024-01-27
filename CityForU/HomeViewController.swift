@@ -19,21 +19,25 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fortuneButtonのUIをセット
-        setButtonUI(button: fortuneButton)
-        //navigationBarのbackボタンの文字を非表示
-        navigationItem.backButtonTitle = ""
-        //navigationBarのbackボタンの色をlabelColorに変更
-        navigationController?.navigationBar.tintColor = .label
+        setupUI()
     }
     
-    private func setButtonUI(button: UIButton) {
+    private func setupButtonUI(button: UIButton) {
         //ボタンを角丸に
         button.layer.cornerRadius = button.bounds.height / 2
         //影を入れる
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 30
         button.layer.shadowColor = UIColor.systemTeal.cgColor
+    }
+    
+    private func setupUI() {
+        //fortuneButtonのUIをセット
+        setupButtonUI(button: fortuneButton)
+        //navigationBarのbackボタンの文字を非表示
+        navigationItem.backButtonTitle = ""
+        //navigationBarのbackボタンの色をlabelColorに変更
+        navigationController?.navigationBar.tintColor = .label
     }
     
 }
