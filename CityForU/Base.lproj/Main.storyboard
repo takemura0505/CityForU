@@ -270,9 +270,21 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-Ee-lEM">
+                                                <rect key="frame" x="119.66666666666669" y="324.33333333333331" width="154" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Tsv-YW-7bT"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="タップしてマップを開く">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                </buttonConfiguration>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="FYv-Ee-lEM" firstAttribute="centerX" secondItem="cJC-SC-DhQ" secondAttribute="centerX" id="04N-VK-r9G"/>
                                             <constraint firstItem="rrm-ag-5aj" firstAttribute="top" secondItem="cJC-SC-DhQ" secondAttribute="top" constant="50" id="0IG-FL-3rZ"/>
                                             <constraint firstAttribute="trailing" secondItem="1OT-oW-0j1" secondAttribute="trailing" constant="25" id="4vm-77-OaN"/>
                                             <constraint firstItem="rrm-ag-5aj" firstAttribute="centerX" secondItem="cJC-SC-DhQ" secondAttribute="centerX" id="8cx-HR-u3M"/>
@@ -298,6 +310,7 @@
                                             <constraint firstItem="hMv-q1-9Ra" firstAttribute="centerY" secondItem="cJC-SC-DhQ" secondAttribute="centerY" id="rZV-Cl-8At"/>
                                             <constraint firstAttribute="trailing" secondItem="WPY-io-rMg" secondAttribute="trailing" constant="20" id="rc8-wG-wSE"/>
                                             <constraint firstAttribute="trailing" secondItem="8MM-jT-Xim" secondAttribute="trailing" id="rrL-UJ-Xai"/>
+                                            <constraint firstItem="FYv-Ee-lEM" firstAttribute="top" secondItem="FA3-5K-c9u" secondAttribute="bottom" constant="5" id="rse-jy-nHt"/>
                                             <constraint firstAttribute="trailing" secondItem="aYu-Uf-B0Q" secondAttribute="trailing" constant="25" id="wey-3T-3gS"/>
                                         </constraints>
                                     </view>
@@ -334,6 +347,7 @@
                         <outlet property="explainTextView" destination="WPY-io-rMg" id="qpb-mf-sr3"/>
                         <outlet property="hasCoastLineTextView" destination="MGm-BI-bbg" id="pZs-x6-Vj3"/>
                         <outlet property="logoImageView" destination="FA3-5K-c9u" id="ODU-Ut-FW7"/>
+                        <outlet property="mapButton" destination="FYv-Ee-lEM" id="OFo-HY-O7o"/>
                         <outlet property="titleLabel" destination="rrm-ag-5aj" id="djG-QJ-1qP"/>
                     </connections>
                 </viewController>

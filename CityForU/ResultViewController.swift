@@ -15,10 +15,12 @@ class ResultViewController: UIViewController {
     @IBOutlet weak private var citizenDayTextView: UITextView!
     @IBOutlet weak private var hasCoastLineTextView: UITextView!
     @IBOutlet weak private var explainTextView: UITextView!
+    @IBOutlet weak private var mapButton: UIButton!
     // 隠すビューの高さを保持する制約
     @IBOutlet weak private var citizenDayHeight: NSLayoutConstraint!
     
     public var responseData: Data?
+    private var prefecture: Prefecture?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class ResultViewController: UIViewController {
         addRightBarButton()
         //戻るボタンを消す
         navigationItem.hidesBackButton = true
+        //タップしてマップに飛べるようにする
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openMap)))
+        mapButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
     }
     
     //結果を表示
@@ -40,6 +46,8 @@ class ResultViewController: UIViewController {
         do {
             //データをPrefectureに
             let prefecture = try decoder.decode(Prefecture.self, from: data)
+            //prefectureをコピー
+            self.prefecture = prefecture
             //海岸線があるかチェック
             let coastLine = checkCoastLine(hasCoastLine: prefecture.hasCoastLine)
             //画像を表示
@@ -85,7 +93,7 @@ class ResultViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    @objc func rightBarButtonTapped() {
+    @objc private func rightBarButtonTapped() {
         //最初の画面に戻る
         if let navigationController = self.navigationController {
             let viewControllers = navigationController.viewControllers
@@ -93,6 +101,16 @@ class ResultViewController: UIViewController {
                 // 2つ前のビューコントローラーに戻る
                 navigationController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }
+        }
+    }
+    
+    //マップを開いて都道府県を表示
+    @objc private func openMap() {
+        //地名をURLエンコードする
+        let locationName = prefecture?.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        //MapsアプリのURLスキームを使用して地図を開く
+        if let url = URL(string: "http://maps.apple.com/?q=\(locationName)") {
+            UIApplication.shared.open(url)
         }
     }
     
