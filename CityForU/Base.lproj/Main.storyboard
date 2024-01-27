@@ -265,7 +265,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="--" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WPY-io-rMg">
-                                                <rect key="frame" x="20" y="519.66666666666663" width="353" height="219.33333333333337"/>
+                                                <rect key="frame" x="25" y="519.66666666666663" width="343" height="219.33333333333337"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -306,9 +306,9 @@
                                             <constraint firstItem="8MM-jT-Xim" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" id="ge2-95-3ji"/>
                                             <constraint firstItem="1OT-oW-0j1" firstAttribute="top" secondItem="hMv-q1-9Ra" secondAttribute="bottom" constant="10" id="mNM-mj-pbB"/>
                                             <constraint firstItem="WPY-io-rMg" firstAttribute="top" secondItem="MGm-BI-bbg" secondAttribute="bottom" id="pgT-m7-kTQ"/>
-                                            <constraint firstItem="WPY-io-rMg" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="20" id="rXy-jh-b2Z"/>
+                                            <constraint firstItem="WPY-io-rMg" firstAttribute="leading" secondItem="cJC-SC-DhQ" secondAttribute="leading" constant="25" id="rXy-jh-b2Z"/>
                                             <constraint firstItem="hMv-q1-9Ra" firstAttribute="centerY" secondItem="cJC-SC-DhQ" secondAttribute="centerY" id="rZV-Cl-8At"/>
-                                            <constraint firstAttribute="trailing" secondItem="WPY-io-rMg" secondAttribute="trailing" constant="20" id="rc8-wG-wSE"/>
+                                            <constraint firstAttribute="trailing" secondItem="WPY-io-rMg" secondAttribute="trailing" constant="25" id="rc8-wG-wSE"/>
                                             <constraint firstAttribute="trailing" secondItem="8MM-jT-Xim" secondAttribute="trailing" id="rrL-UJ-Xai"/>
                                             <constraint firstItem="FYv-Ee-lEM" firstAttribute="top" secondItem="FA3-5K-c9u" secondAttribute="bottom" constant="5" id="rse-jy-nHt"/>
                                             <constraint firstAttribute="trailing" secondItem="aYu-Uf-B0Q" secondAttribute="trailing" constant="25" id="wey-3T-3gS"/>
