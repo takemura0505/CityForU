@@ -41,35 +41,23 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //nextButtonのUIをセット
-        setButtonUI(button: nextButton)
+        //UIをセットアップ
+        setupUI()
         //スワイプでキーボード閉じる処理
         scrollView.keyboardDismissMode = .interactive
         //nextボタンタップ時の処理を追加
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        //textFieldの文字が変わったら呼び出すようにする
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         //textFieldのdelegateを有効にする
         textField.delegate = self
-        //backButtonを最初は非表示にしておく
-        backButton.isHidden = true
-        //datePickerを設定
-        setDatePicker()
-        //血液型の警告ラベルを消しておく
-        bloodWarnLabel.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //キーボードの表示非表示を確認
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setupKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //キーボード通知を解除
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        removeKeyboardNotifications()
     }
     
     //キーボード表示時の処理
@@ -339,6 +327,31 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
             navigationController?.pushViewController(resultVC, animated: true)
             hideIndicator()
         }
+    }
+    
+    private func setupKeyboardNotifications() {
+        //キーボードの表示非表示を確認
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        //キーボード通知を解除
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func setupUI() {
+        //ボタンのUIをセット
+        setButtonUI(button: nextButton)
+        //datePickerをセット
+        setDatePicker()
+        //血液型の警告ラベルを消しておく
+        bloodWarnLabel.isHidden = true
+        //textFieldの文字が変わったら呼び出すようにする
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        //backButtonを最初は非表示にしておく
+        backButton.isHidden = true
     }
     
 }
