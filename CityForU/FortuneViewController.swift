@@ -38,6 +38,8 @@ class FortuneViewController: UIViewController {
     private var datePicker = UIDatePicker()
     private var indicatorBackgroundView: UIView!
     private var indicator: UIActivityIndicatorView!
+    private var bloodTypePickerView: UIPickerView = UIPickerView()
+    private let bloodTypesTemplate = ["A", "B", "O", "AB"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,8 +142,8 @@ class FortuneViewController: UIViewController {
             explainLabel.text = "血液型を入力してください"
             textField.placeholder = "血液型を入力"
             textField.text = bloodType
-            //datePickerを外す
-            textField.inputView = nil
+            //bloodPickerをつける
+            textField.inputView = bloodTypePickerView
         default:
             break
         }
@@ -305,7 +307,7 @@ class FortuneViewController: UIViewController {
     
     //indicator非表示
     private func hideIndicator(){
-        // viewにローディング画面が出ていれば閉じる
+        //viewにローディング画面が出ていれば閉じる
         DispatchQueue.main.async {
             if let viewWithTag = self.view.viewWithTag(1) {
                 viewWithTag.removeFromSuperview()
@@ -342,6 +344,8 @@ class FortuneViewController: UIViewController {
         setButtonUI(button: nextButton)
         //datePickerをセット
         setupDatePicker()
+        //bloodPickerをセット
+        addBloodPicker()
         //血液型の警告ラベルを消しておく
         bloodWarnLabel.isHidden = true
         //backButtonを最初は非表示にしておく
@@ -359,9 +363,15 @@ class FortuneViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
+    private func addBloodPicker() {
+        //PickerViewの設定
+        bloodTypePickerView.delegate = self
+        bloodTypePickerView.dataSource = self
+    }
+    
 }
 
-extension FortuneViewController: UITextFieldDelegate {
+extension FortuneViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nextButtonTapped()
@@ -369,4 +379,25 @@ extension FortuneViewController: UITextFieldDelegate {
         return true
     }
     
+    //PickerViewの列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //PickerViewの行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return bloodTypesTemplate.count
+    }
+    
+    //PickerViewに表示するテキストを設定
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return bloodTypesTemplate[row]
+    }
+    
+    //PickerViewから選択された値をテキストフィールドに表示
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.text = bloodTypesTemplate[row]
+        textFieldDidChange()
+    }
+
 }
