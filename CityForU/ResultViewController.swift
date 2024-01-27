@@ -15,6 +15,8 @@ class ResultViewController: UIViewController {
     @IBOutlet weak private var citizenDayTextView: UITextView!
     @IBOutlet weak private var hasCoastLineTextView: UITextView!
     @IBOutlet weak private var explainTextView: UITextView!
+    // 隠すビューの高さを保持する制約
+    @IBOutlet weak private var citizenDayHeight: NSLayoutConstraint!
     
     public var responseData: Data?
     
@@ -52,6 +54,9 @@ class ResultViewController: UIViewController {
                 citizenDayTextView.text = "県民の日 : \(citizenDay.month)月\(citizenDay.day)日"
             } else {
                 citizenDayTextView.isHidden = true
+                //高さを0にしレイアウトを更新する
+                citizenDayHeight.constant = 0
+                view.layoutIfNeeded()
             }
             hasCoastLineTextView.text = "海岸線 : \(coastLine)"
             explainTextView.text = prefecture.brief

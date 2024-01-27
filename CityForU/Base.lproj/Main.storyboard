@@ -326,6 +326,7 @@
                     </view>
                     <connections>
                         <outlet property="capitalTextView" destination="1OT-oW-0j1" id="wvr-jB-lxM"/>
+                        <outlet property="citizenDayHeight" destination="yam-Ka-yJa" id="yK6-NY-cl1"/>
                         <outlet property="citizenDayTextView" destination="aYu-Uf-B0Q" id="two-ji-pqv"/>
                         <outlet property="explainTextView" destination="WPY-io-rMg" id="qpb-mf-sr3"/>
                         <outlet property="hasCoastLineTextView" destination="MGm-BI-bbg" id="pZs-x6-Vj3"/>
