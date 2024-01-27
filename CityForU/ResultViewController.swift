@@ -25,6 +25,10 @@ class ResultViewController: UIViewController {
         displayResult(data: responseData ?? Data())
         //logoImageViewを角丸に
         logoImageView.layer.cornerRadius = 20
+        //rightBarButtonを追加
+        addRightBarButton()
+        //戻るボタンを消す
+        navigationItem.hidesBackButton = true
     }
     
     //結果を表示
@@ -71,6 +75,24 @@ class ResultViewController: UIViewController {
             return "あり"
         } else {
             return "なし"
+        }
+    }
+    
+    private func addRightBarButton() {
+        // バーボタンアイテムの作成
+        let rightBarButton = UIBarButtonItem(title: "終了", style: .plain, target: self, action: #selector(rightBarButtonTapped))
+        // ナビゲーションアイテムにバーボタンアイテムを設定
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc func rightBarButtonTapped() {
+        //最初の画面に戻る
+        if let navigationController = self.navigationController {
+            let viewControllers = navigationController.viewControllers
+            if viewControllers.count >= 3 {
+                // 2つ前のビューコントローラーに戻る
+                navigationController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+            }
         }
     }
     
