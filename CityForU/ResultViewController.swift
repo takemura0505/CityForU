@@ -46,24 +46,15 @@ class ResultViewController: UIViewController {
             //海岸線があるかチェック
             let coastLine = checkCoastLine(hasCoastLine: prefecture.hasCoastLine)
             //画像を表示
-            guard let url = URL(string: prefecture.logoUrl) else { return }
-            DispatchQueue.main.async { [self] in
-                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                    logoImageView.image = image
-                }
-            }
+            displayImage(fromURL: prefecture.logoUrl)
             //情報を表示
             titleLabel.text = prefecture.name
             capitalTextView.text = "県庁所在地 : \(prefecture.capital)"
             // 県民の日の表示を制御
             if let citizenDay = prefecture.citizenDay {
-                citizenDayTextView.isHidden = false
-                citizenDayTextView.text = "県民の日 : \(citizenDay.month)月\(citizenDay.day)日"
+                showCitizenDayTextView(month: prefecture.citizenDay?.month ?? 0, day: prefecture.citizenDay?.day ?? 0)
             } else {
-                citizenDayTextView.isHidden = true
-                //高さを0にしレイアウトを更新する
-                citizenDayHeight.constant = 0
-                view.layoutIfNeeded()
+                hideCitizenDayTextView()
             }
             hasCoastLineTextView.text = "海岸線 : \(coastLine)"
             explainTextView.text = prefecture.brief
@@ -74,11 +65,7 @@ class ResultViewController: UIViewController {
     
     //海岸線があるかどうか
     private func checkCoastLine(hasCoastLine: Bool) -> String {
-        if hasCoastLine {
-            return "あり"
-        } else {
-            return "なし"
-        }
+        return hasCoastLine ? "あり" : "なし"
     }
     
     private func addRightBarButton() {
@@ -97,6 +84,31 @@ class ResultViewController: UIViewController {
                 navigationController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }
         }
+    }
+    
+    // 画像を表示
+    private func displayImage(fromURL urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self?.logoImageView.image = image
+                }
+            }
+        }
+    }
+    
+    // 県民の日のテキストを表示
+    private func showCitizenDayTextView(month: Int, day: Int) {
+        citizenDayTextView.isHidden = false
+        citizenDayTextView.text = "県民の日 : \(month)月\(day)日"
+    }
+    
+    // 県民の日のテキストを非表示
+    private func hideCitizenDayTextView() {
+        citizenDayTextView.isHidden = true
+        citizenDayHeight.constant = 0
+        view.layoutIfNeeded()
     }
     
     //マップを開いて都道府県を表示
