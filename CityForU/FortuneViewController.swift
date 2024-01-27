@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FortuneViewController: UIViewController, UITextFieldDelegate {
+class FortuneViewController: UIViewController {
     
     @IBOutlet weak private var nextButton: UIButton!
     @IBOutlet weak private var scrollView: UIScrollView!
@@ -43,12 +43,8 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         //UIをセットアップ
         setupUI()
-        //スワイプでキーボード閉じる処理
-        scrollView.keyboardDismissMode = .interactive
-        //nextボタンタップ時の処理を追加
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        //textFieldのdelegateを有効にする
-        textField.delegate = self
+        //動作をセットアップ
+        setupActions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,26 +86,26 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
     }
     
     //nextButtonがタップされた時の処理
-   @objc private func nextButtonTapped() {
-       view.endEditing(true)
-       //textFieldの前後の空白を削除
-       let textFieldText = textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
-       //データを保持
-       saveData(level: progressLevel, data: textFieldText)
-       //最後のレベルであればロード画面を表示し、血液型をチェックしデータを送信
-       if progressLevel == 0.68 {
-           //ロード画面表示
-           showIndicator()
-           //血液型をチェックしデータを送信
-           checkBloodTypeAndSend()
-       }
-       //progressViewを動かす
-       progressLevel += 0.34
-       moveProgressView(level: progressLevel)
-       //表示を変更する
-       levelChanged()
-       //textFieldが0文字であればボタンを押せなくする
-       textFieldDidChange()
+    @objc private func nextButtonTapped() {
+        view.endEditing(true)
+        //textFieldの前後の空白を削除
+        let textFieldText = textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        //データを保持
+        saveData(level: progressLevel, data: textFieldText)
+        //最後のレベルであればロード画面を表示し、血液型をチェックしデータを送信
+        if progressLevel == 0.68 {
+            //ロード画面表示
+            showIndicator()
+            //血液型をチェックしデータを送信
+            checkBloodTypeAndSend()
+        }
+        //progressViewを動かす
+        progressLevel += 0.34
+        moveProgressView(level: progressLevel)
+        //表示を変更する
+        levelChanged()
+        //textFieldが0文字であればボタンを押せなくする
+        textFieldDidChange()
     }
     
     //textFieldの文字が変わったら呼び出される
@@ -165,7 +161,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    private func setDatePicker() {
+    private func setupDatePicker() {
         //datePicker設定
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.timeZone = NSTimeZone.local
@@ -207,7 +203,7 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         //現在の日付を取得
         let currentDate = Date()
         let calendar = Calendar.current
-
+        
         let year = calendar.component(.year, from: currentDate)
         let month = calendar.component(.month, from: currentDate)
         let day = calendar.component(.day, from: currentDate)
@@ -345,18 +341,27 @@ class FortuneViewController: UIViewController, UITextFieldDelegate {
         //ボタンのUIをセット
         setButtonUI(button: nextButton)
         //datePickerをセット
-        setDatePicker()
+        setupDatePicker()
         //血液型の警告ラベルを消しておく
         bloodWarnLabel.isHidden = true
-        //textFieldの文字が変わったら呼び出すようにする
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         //backButtonを最初は非表示にしておく
         backButton.isHidden = true
     }
     
+    private func setupActions() {
+        //スワイプでキーボード閉じる処理
+        scrollView.keyboardDismissMode = .interactive
+        //nextボタンタップ時の処理を追加
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        //textFieldのdelegateを有効にする
+        textField.delegate = self
+        //textFieldの文字が変わったら呼び出すようにする
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
 }
 
-extension FortuneViewController {
+extension FortuneViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nextButtonTapped()

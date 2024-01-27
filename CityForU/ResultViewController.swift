@@ -24,17 +24,12 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //結果を表示
         displayResult(data: responseData ?? Data())
-        //logoImageViewを角丸に
-        logoImageView.layer.cornerRadius = 20
-        //rightBarButtonを追加
-        addRightBarButton()
-        //戻るボタンを消す
-        navigationItem.hidesBackButton = true
-        //タップしてマップに飛べるようにする
-        logoImageView.isUserInteractionEnabled = true
-        logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openMap)))
-        mapButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
+        //UIをセットアップ
+        setupUI()
+        //動作をセットアップ
+        setupActions()
     }
     
     //結果を表示
@@ -98,7 +93,7 @@ class ResultViewController: UIViewController {
         if let navigationController = self.navigationController {
             let viewControllers = navigationController.viewControllers
             if viewControllers.count >= 3 {
-                // 2つ前のビューコントローラーに戻る
+                //2つ前のビューコントローラーに戻る
                 navigationController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }
         }
@@ -112,6 +107,22 @@ class ResultViewController: UIViewController {
         if let url = URL(string: "http://maps.apple.com/?q=\(locationName)") {
             UIApplication.shared.open(url)
         }
+    }
+    
+    private func setupUI() {
+        //logoImageViewを角丸に
+        logoImageView.layer.cornerRadius = 20
+        //rightBarButtonを追加
+        addRightBarButton()
+        //戻るボタンを消す
+        navigationItem.hidesBackButton = true
+    }
+    
+    private func setupActions() {
+        //タップしてマップに飛べるようにする
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openMap)))
+        mapButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
     }
     
 }
