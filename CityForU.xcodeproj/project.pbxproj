@@ -14,13 +14,15 @@
 		875144EE2B5E3E180016C981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875144EC2B5E3E180016C981 /* Main.storyboard */; };
 		875144F02B5E3E190016C981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 875144EF2B5E3E190016C981 /* Assets.xcassets */; };
 		875144F32B5E3E190016C981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875144F12B5E3E190016C981 /* LaunchScreen.storyboard */; };
-		875145082B5E3E190016C981 /* CityForUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875145072B5E3E190016C981 /* CityForUUITests.swift */; };
 		8751450A2B5E3E190016C981 /* CityForUUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */; };
 		87603FF82B622BB9009C0314 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87603FF72B622BB9009C0314 /* ResultViewController.swift */; };
 		87603FFA2B626080009C0314 /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87603FF92B626080009C0314 /* Prefecture.swift */; };
 		87FACE102B6672CF00B071F2 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE0F2B6672CF00B071F2 /* HomeViewControllerTests.swift */; };
 		87FACE122B66747500B071F2 /* FortuneViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE112B66747500B071F2 /* FortuneViewControllerTests.swift */; };
 		87FACE142B66769200B071F2 /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE132B66769200B071F2 /* ResultViewControllerTests.swift */; };
+		87FACE1C2B66A1B500B071F2 /* FortuneViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE1B2B66A1B500B071F2 /* FortuneViewControllerUITests.swift */; };
+		87FACE1E2B66AD4100B071F2 /* HomeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE1D2B66AD4100B071F2 /* HomeViewControllerUITests.swift */; };
+		87FACE202B66AD7200B071F2 /* ResultViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACE1F2B66AD7200B071F2 /* ResultViewControllerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +54,15 @@
 		875144F42B5E3E190016C981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		875144F92B5E3E190016C981 /* CityForUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityForUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		875145032B5E3E190016C981 /* CityForUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityForUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		875145072B5E3E190016C981 /* CityForUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityForUUITests.swift; sourceTree = "<group>"; };
 		875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityForUUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87603FF72B622BB9009C0314 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		87603FF92B626080009C0314 /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		87FACE0F2B6672CF00B071F2 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		87FACE112B66747500B071F2 /* FortuneViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneViewControllerTests.swift; sourceTree = "<group>"; };
 		87FACE132B66769200B071F2 /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
+		87FACE1B2B66A1B500B071F2 /* FortuneViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneViewControllerUITests.swift; sourceTree = "<group>"; };
+		87FACE1D2B66AD4100B071F2 /* HomeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerUITests.swift; sourceTree = "<group>"; };
+		87FACE1F2B66AD7200B071F2 /* ResultViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewControllerUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +136,9 @@
 		875145062B5E3E190016C981 /* CityForUUITests */ = {
 			isa = PBXGroup;
 			children = (
-				875145072B5E3E190016C981 /* CityForUUITests.swift */,
+				87FACE1D2B66AD4100B071F2 /* HomeViewControllerUITests.swift */,
+				87FACE1B2B66A1B500B071F2 /* FortuneViewControllerUITests.swift */,
+				87FACE1F2B66AD7200B071F2 /* ResultViewControllerUITests.swift */,
 				875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */,
 			);
 			path = CityForUUITests;
@@ -328,8 +334,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FACE202B66AD7200B071F2 /* ResultViewControllerUITests.swift in Sources */,
+				87FACE1C2B66A1B500B071F2 /* FortuneViewControllerUITests.swift in Sources */,
 				8751450A2B5E3E190016C981 /* CityForUUITestsLaunchTests.swift in Sources */,
-				875145082B5E3E190016C981 /* CityForUUITests.swift in Sources */,
+				87FACE1E2B66AD4100B071F2 /* HomeViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

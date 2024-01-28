@@ -35,6 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an4-9R-koZ">
                                 <rect key="frame" x="50" y="698" width="293" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="fortuneButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KO2-mH-rOb"/>
                                 </constraints>
@@ -98,6 +99,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-Lg-6mQ">
                                                 <rect key="frame" x="50" y="639" width="293" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="C2l-Am-GKE"/>
                                                 </constraints>
@@ -109,6 +111,7 @@
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前を入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txl-pu-SP4">
                                                 <rect key="frame" x="50" y="314.66666666666669" width="293" height="50"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="textField"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="s1z-zt-TpM"/>
                                                 </constraints>
@@ -117,6 +120,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-NT-BYG">
                                                 <rect key="frame" x="109" y="150" width="175" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="explainLabel"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -124,9 +128,11 @@
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-tV-Aup">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="4"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="progressView"/>
                                             </progressView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-V6-Xk7">
                                                 <rect key="frame" x="50" y="374.66666666666669" width="35" height="35"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="backButton"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="PZB-ip-HP6"/>
                                                     <constraint firstAttribute="width" constant="35" id="gAk-Zd-eYx"/>
@@ -140,6 +146,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="血液型が間違っています" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1o-wF-4tt">
                                                 <rect key="frame" x="55" y="289" width="134" height="15.666666666666686"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="bloodWarnLabel"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -220,6 +227,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-ag-5aj">
                                                 <rect key="frame" x="181.66666666666666" y="30" width="30" height="41"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="titleLabel"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -229,6 +237,7 @@
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="県庁所在地：--" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1OT-oW-0j1">
                                                 <rect key="frame" x="25" y="399.66666666666669" width="343" height="40"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="capitalTextView"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Nt7-so-4Mr"/>
                                                 </constraints>
@@ -239,6 +248,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-5K-c9u">
                                                 <rect key="frame" x="50" y="91.000000000000014" width="293" height="228.33333333333337"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="logoImageView"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-q1-9Ra">
                                                 <rect key="frame" x="30" y="369.33333333333331" width="333" height="20.333333333333314"/>
@@ -257,6 +267,7 @@
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="海岸線があるかどうか：--" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MGm-BI-bbg">
                                                 <rect key="frame" x="25" y="479.66666666666663" width="343" height="40"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="hasCoastLineTextView"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vnu-T4-kUR"/>
                                                 </constraints>
@@ -266,6 +277,7 @@
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="--" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WPY-io-rMg">
                                                 <rect key="frame" x="25" y="519.66666666666663" width="343" height="219.33333333333337"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="explainTextView"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -368,10 +380,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
