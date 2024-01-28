@@ -105,15 +105,11 @@
 		875144E52B5E3E180016C981 /* CityForU */ = {
 			isa = PBXGroup;
 			children = (
-				875144E62B5E3E180016C981 /* AppDelegate.swift */,
-				875144E82B5E3E180016C981 /* SceneDelegate.swift */,
-				872AF80F2B5E838A00DB108F /* HomeViewController.swift */,
-				872AF8112B5E850F00DB108F /* FortuneViewController.swift */,
-				87603FF72B622BB9009C0314 /* ResultViewController.swift */,
-				87603FF92B626080009C0314 /* Prefecture.swift */,
-				875144EC2B5E3E180016C981 /* Main.storyboard */,
+				87FACE0E2B664F1500B071F2 /* Delegate */,
+				87FACE0D2B664E8900B071F2 /* Controller */,
+				87FACE0C2B664E8200B071F2 /* View */,
+				87FACE0B2B664E7700B071F2 /* Model */,
 				875144EF2B5E3E190016C981 /* Assets.xcassets */,
-				875144F12B5E3E190016C981 /* LaunchScreen.storyboard */,
 				875144F42B5E3E190016C981 /* Info.plist */,
 			);
 			path = CityForU;
@@ -134,6 +130,42 @@
 				875145092B5E3E190016C981 /* CityForUUITestsLaunchTests.swift */,
 			);
 			path = CityForUUITests;
+			sourceTree = "<group>";
+		};
+		87FACE0B2B664E7700B071F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87603FF92B626080009C0314 /* Prefecture.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		87FACE0C2B664E8200B071F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				875144EC2B5E3E180016C981 /* Main.storyboard */,
+				875144F12B5E3E190016C981 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87FACE0D2B664E8900B071F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				872AF80F2B5E838A00DB108F /* HomeViewController.swift */,
+				872AF8112B5E850F00DB108F /* FortuneViewController.swift */,
+				87603FF72B622BB9009C0314 /* ResultViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		87FACE0E2B664F1500B071F2 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				875144E62B5E3E180016C981 /* AppDelegate.swift */,
+				875144E82B5E3E180016C981 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
