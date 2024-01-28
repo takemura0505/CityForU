@@ -9,17 +9,17 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    @IBOutlet weak private var titleLabel: UILabel!
-    @IBOutlet weak private var logoImageView: UIImageView!
-    @IBOutlet weak private var capitalTextView: UITextView!
-    @IBOutlet weak private var citizenDayTextView: UITextView!
-    @IBOutlet weak private var hasCoastLineTextView: UITextView!
-    @IBOutlet weak private var explainTextView: UITextView!
+    @IBOutlet weak internal var titleLabel: UILabel!
+    @IBOutlet weak internal var logoImageView: UIImageView!
+    @IBOutlet weak internal var capitalTextView: UITextView!
+    @IBOutlet weak internal var citizenDayTextView: UITextView!
+    @IBOutlet weak internal var hasCoastLineTextView: UITextView!
+    @IBOutlet weak internal var explainTextView: UITextView!
     @IBOutlet weak private var mapButton: UIButton!
     // 隠すビューの高さを保持する制約
     @IBOutlet weak private var citizenDayHeight: NSLayoutConstraint!
     
-    public var responseData: Data?
+    internal var responseData: Data?
     private var prefecture: Prefecture?
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class ResultViewController: UIViewController {
     }
     
     //結果を表示
-    private func displayResult(data: Data) {
+    internal func displayResult(data: Data) {
         print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
         //データを変換
         let decoder = JSONDecoder()
@@ -64,7 +64,7 @@ class ResultViewController: UIViewController {
     }
     
     //海岸線があるかどうか
-    private func checkCoastLine(hasCoastLine: Bool) -> String {
+    internal func checkCoastLine(hasCoastLine: Bool) -> String {
         return hasCoastLine ? "あり" : "なし"
     }
     
@@ -87,7 +87,7 @@ class ResultViewController: UIViewController {
     }
     
     // 画像を表示
-    private func displayImage(fromURL urlString: String) {
+    internal func displayImage(fromURL urlString: String) {
         guard let url = URL(string: urlString) else { return }
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {

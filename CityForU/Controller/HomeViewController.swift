@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak private var fortuneButton: UIButton!
     
-    @IBAction private func fortuneButtonTapped() {
+    @IBAction internal func fortuneButtonTapped() {
         //占う画面へ遷移
         let fortuneVC = storyboard?.instantiateViewController(withIdentifier: "FortuneViewController") as! FortuneViewController
         navigationController?.pushViewController(fortuneVC, animated: true)

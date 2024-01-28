@@ -9,12 +9,12 @@ import UIKit
 
 class FortuneViewController: UIViewController {
     
-    @IBOutlet weak private var nextButton: UIButton!
+    @IBOutlet weak internal var nextButton: UIButton!
     @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var progressView: UIProgressView!
     @IBOutlet weak private var textField: UITextField!
     @IBOutlet weak private var explainLabel: UILabel!
-    @IBOutlet weak private var backButton: UIButton!
+    @IBOutlet weak internal var backButton: UIButton!
     @IBOutlet weak private var bloodWarnLabel: UILabel!
     
     @IBAction private func backButtonTapped() {
@@ -32,7 +32,7 @@ class FortuneViewController: UIViewController {
         bloodWarnLabel.isHidden = true
     }
     
-    private var progressLevel: Double = 0
+    internal var progressLevel: Double = 0
     private var name = ""
     private var bloodType = ""
     private var datePicker = UIDatePicker()
@@ -261,7 +261,7 @@ class FortuneViewController: UIViewController {
     }
     
     //存在する血液型かチェック
-    private func checkBloodType(bloodType: String) -> Bool {
+    internal func checkBloodType(bloodType: String) -> Bool {
         if bloodType == "a" || bloodType == "b" || bloodType == "o" || bloodType == "ab" {
             return true
         } else {
